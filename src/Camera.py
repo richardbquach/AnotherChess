@@ -81,7 +81,7 @@ if __name__ == "__main__":
                 break
 
             # if isFirstFrame:
-            #     cv.waitKey(30000*2)
+            #      cv.waitKey(30000*2)
             #     isFirstFrame = False
 
 
