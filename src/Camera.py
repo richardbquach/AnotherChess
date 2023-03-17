@@ -11,18 +11,17 @@ import time
 import os
 
 if __name__ == "__main__":
+    cap = cv.VideoCapture(0)
     while True:
     #video_file = r'Video' + os.sep + 'Video_Org.mp4'
     #video = []
-        resolution = (640, 480)
-        camera = PiCamera()
-        camera.resolution = resolution
-        camera.framerate = 30
-        rawCapture = PiRGBArray(camera, size=resolution)
-        time.sleep(0.1)
-        cap = cv.VideoCapture(0)
 
+        if not cap.isOpened():
+            print("Cannot open Camera")
         ret, frame = cap.read()
+        if not ret:
+            print("Can't receive frame, come on bruh")
+            break
         # image = frame.array
         refFrame = frame
         if refFrame is None or refFrame.size == 0:
